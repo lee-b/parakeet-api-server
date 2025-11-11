@@ -1,5 +1,7 @@
 # Parakeet STT API Server
 
+Project is somewhat experimental. I can only provide minimal support.
+
 A high-performance Speech-to-Text API server using NVIDIA's Parakeet TDT 0.6B v3 model with CPU and ONNX int8 support.
 
 ## Features
