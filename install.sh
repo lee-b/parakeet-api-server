@@ -45,7 +45,7 @@ if [ "$GPU_DETECTED" = true ]; then
         echo "→ Installing CPU-only version"
     else
         INSTALL_GPU=true
-        echo "→ Installing GPU (CUDA 12.6) version"
+        echo "→ Installing GPU (CUDA 12.8) version"
     fi
 else
     echo "No GPU detected. Installing CPU-only version."
@@ -80,7 +80,7 @@ echo ""
 # Install PyTorch with or without CUDA
 if [ "$INSTALL_GPU" = true ]; then
     echo "Installing PyTorch with CUDA 12.6 support..."
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 else
     echo "Installing PyTorch (CPU-only)..."
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
