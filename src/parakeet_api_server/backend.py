@@ -78,7 +78,7 @@ def create_backend(
     Returns:
         Appropriate STT backend instance
     """
-    import config
+    from . import config
 
     if precision not in config.AVAILABLE_PRECISION:
         raise ValueError(
@@ -88,7 +88,7 @@ def create_backend(
 
     # INT8 uses ONNX backend (pre-quantized model)
     if precision == 'int8':
-        from inference_onnx import ONNXBackend
+        from .inference_onnx import ONNXBackend
         return ONNXBackend(
             precision=precision,
             model_dir=model_dir,
@@ -98,7 +98,7 @@ def create_backend(
 
     # FP32 uses NeMo backend (native PyTorch)
     elif precision == 'fp32':
-        from inference_nemo import NeMoBackend
+        from .inference_nemo import NeMoBackend
         return NeMoBackend(
             precision=precision,
             force_cpu=force_cpu,

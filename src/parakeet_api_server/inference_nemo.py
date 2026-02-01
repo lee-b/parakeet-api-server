@@ -9,8 +9,8 @@ from typing import Union
 import soundfile as sf
 import librosa
 
-from backend import STTBackend
-import config
+from .backend import STTBackend
+from . import config
 
 
 class NeMoBackend(STTBackend):

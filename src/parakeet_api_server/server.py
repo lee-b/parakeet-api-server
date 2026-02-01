@@ -19,9 +19,9 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-import config
-from backend import STTBackend, create_backend
-from model_downloader import download_models
+from . import config
+from .backend import STTBackend, create_backend
+from .model_downloader import download_models
 
 
 # Global model instance

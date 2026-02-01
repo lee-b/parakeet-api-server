@@ -1,0 +1,25 @@
+services:
+  parakeet-api-server:
+    container_name: parakeet-api-server
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - /models/tts:/app/models
+      - ../../cache/huggingface:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["4"]
+              capabilities: [gpu]
+    restart: unless-stopped
+    command:
+      - "parakeet-api-server"
+      - "--cpu"
+      - "--precision"
+      - "int8"
+      - "--port"
+      - "8000"
+

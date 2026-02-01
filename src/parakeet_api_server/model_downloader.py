@@ -8,7 +8,7 @@ import tempfile
 from pathlib import Path
 from urllib.request import urlretrieve
 from tqdm import tqdm
-import config
+from . import config
 
 
 class DownloadProgressBar:
